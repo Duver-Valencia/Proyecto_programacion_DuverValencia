@@ -1,0 +1,1 @@
+Admin,usuario,correo_electronico,contraseña,edad,curso

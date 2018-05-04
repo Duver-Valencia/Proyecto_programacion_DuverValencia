@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="/static/css/registro.css" type="text/css">
+{% extends 'registro_base.html'%}
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+<!-- este es un comentario -->
+    {% from "registro_macro.html" import render_field %}
+    <form method="POST" class="cuadro">
+        <h1 class="titulo">Registro</h1>
+        <label for="admin">Admin</label>
+        {{ render_field(form.admin_registro, id='admin',class='texto',placeholder='Escribe el admin' )}}
+                            
+        <label for="usuario_registro">Usuario - registro</label>
+
+        {{ render_field(form.username_registro,class='texto', id='usuario_registro', placeholder='Escribe el usuario a registrar')}}
+
+        <label for="email_registro">Correo electronico - registro </label>
+        {{ render_field(form.email_registro, id='email_registro',class='texto',placeholder='Escribe el correo electronico del usuario' )}}
+                            
+        <label for="comment_registro">Contraseña - registro</label>
+
+        {{ render_field(form.comment_registro,class='texto', id='comment_registro', placeholder='Escribe la contraseña del usuario')}}
+
+        <label for="edad_registro">Edad - registro </label>
+        {{ render_field(form.edad_registro, id='edad_registro',class='texto',placeholder='Escribe la edad del usuario' )}}
+                            
+        <label for="curso_registro" >Curso - registro</label>
+
+        {{ render_field(form.curso_registro,class='select', id='curso_registro')}}
+
+        <button  type="submit" class="boton">Registrarse </button>
+
+        <a href="inicio_sesión" class="boton">Iniciar sesión</a>
+
+        <a href="/" class="boton">Pagina principal</a>
+    </form>
+
+{% endblock %}

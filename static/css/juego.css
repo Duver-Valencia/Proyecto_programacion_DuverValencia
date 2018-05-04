@@ -1,0 +1,24 @@
+body{
+	background: white;
+}
+
+.canvas{
+  width:0% 0%;
+  padding:0px 0px;
+}
+
+.canvas_lugar{
+	padding:0px 300px;
+}
+
+
+.links{
+	padding:0px 0px;
+}
+
+a{
+	background: black;
+	text-decoration: none;
+	width: 20px;
+	padding: 10px 10px;
+}
