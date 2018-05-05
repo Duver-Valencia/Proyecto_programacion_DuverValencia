@@ -1,5 +1,5 @@
 form{
-	background:white  ;
+	background: white   ;
 	width: 25%;
 	border: 1px solid #ccc;
 	margin-top: 50px;
@@ -9,23 +9,15 @@ form{
 
 }
 
-body{
-	background:#EFA716 ;
-}
 
+body{
+	background:#EFA716;
+
+}
 .titulo{
 	font-family: impact;
 	font-size: 30px;
 	text-align: center;
-}
-
-.select{
-	background:white;
-	margin: 20px;
-    padding:5px;
-    border: 2px solid #1668C4;
-    width: 25%;
-    border-radius: 10px;
 }
 
 label{
@@ -36,8 +28,7 @@ label{
 	border-radius: 10px;
 }
 
-input,.boton{
-	font-family: arial;
+input, .boton{
 	margin-bottom: 20px;
 	width: 100%;
 	padding: 10px;
@@ -51,7 +42,7 @@ input,.boton{
 .boton{
 	font-family: impact;
 	font-size: 18px;
-	margin:10px 100% 10px 0% ;
+	margin-bottom: 30px;
 	background: blue;
 	color: white;
 	border: none;
@@ -63,8 +54,8 @@ input,.boton{
 	cursor: pointer; 
 }
 
+
 a{
-	font-family: impact;
 	font-size: 18px;
 	font-family: arial;
 	text-align: center;

@@ -12,13 +12,18 @@ class CommentForm(Form):
 	comment = PasswordField('',
 						[validators.required(message= 'La contraseña es requerida'),
 						 validators.length(min=5,max=16,message='Ingrese una contraseña valida. (min:5,max:16)')])
+class AdministradorForm(Form):
+	administrador = StringField('',
+						   [validators.Required(message= 'El administrador es requerido'),
+							validators.length(min=4,max=25, message='Ingrese un usuario valido. (min:4,max:25)')] )
+	contraseña_administrador = PasswordField('',
+						[validators.required(message= 'La contraseña es requerida'),
+						 validators.length(min=5,max=16,message='Ingrese una contraseña valida. (min:5,max:16)')])
+
+
 class RegistroForm(Form):
-	admin_registro = StringField('',
-									[validators.Required(message='El admin es requerido'),
-									 validators.length(min=4, max=25,
-													   message='Ingrese un admin valido. (min:4,max:25)')])
 	username_registro = StringField('',
-						   [validators.Required(message= 'El usuario es requerido'),
+						   [validators.Required(message= 'El usuario a registrar es requerido'),
 							validators.length(min=4,max=25, message='Ingrese un usuario valido. (min:4,max:25)')] )
 	email_registro = EmailField('',
 					   [validators.Required(message= 'El email es requerido'),

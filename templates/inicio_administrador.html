@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="/static/css/inicio_admin.css" type="text/css">
+{% extends 'base_administrador.html'%}
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+    {% from "_macro_administrador.html" import render_field %}
+<!-- este es un comentario -->
+    <form method="POST">
+        <h1 class="titulo">Iniciar sesión administrador</h1>
+        <label for="administrador">Administrador</label>
+        {{ render_field(form.administrador, class='texto',placeholder='Escribe tu usuario' )}}
+                            
+        <label for="contraseña">Contraseña</label>
+
+        {{ render_field(form.contraseña_administrador,class='texto', id='contraseña', placeholder='Escribe tu contraseña')}}
+
+        <button  type="submit" class="boton">Iniciar sesión administrador</button>
+        <a href="/" class="boton">Pagina principal</a>
+    </form>
+
+
+{% endblock %}
