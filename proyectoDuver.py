@@ -3,7 +3,7 @@ from flask import Flask
 from flask import render_template
 from flask import request
 import forms
-
+from validar_inicio import*
 l=[]
 
 
@@ -18,19 +18,10 @@ def principal():
 def index():
    comment_form = forms.CommentForm(request.form)
    if request.method == 'POST' and comment_form.validate():
-       f = open('inicio_sesión.txt', 'a')
-       f.write('\n')
-       f.write(comment_form.username.data)
-       f.write(',')
-       f.write(comment_form.comment.data)
-       f.close()
-       l_new = []
-       l_new.append((comment_form.username.data))
-       l_new.append((comment_form.comment.data))
-       l.append(l_new)
-       print(l)
+    if verificarUsuario(comment_form.username.data,comment_form.comment.data):
        return render_template('juego.html')
-       
+    else:
+      print('no exite')
    title = 'Juego'
    return render_template('index.html', title = title, form = comment_form)
 
@@ -75,6 +66,17 @@ def registro():
        f.write(',')
        f.write(registro_form.curso_registro.data)
        f.close()
+       f = open('inicio_sesión.txt', 'a')
+       f.write('\n')
+       f.write(registro_form.username_registro.data)
+       f.write(',')
+       f.write(registro_form.comment_registro.data)
+       f.close()
+       l_new = []
+       l_new.append((registro_form.username_registro.data))
+       l_new.append((registro_form.comment_registro.data))
+       l.append(l_new)
+       print(l)
        l_new = []
        l_new.append((registro_form.username_registro.data))
        l_new.append((registro_form.email_registro.data))
@@ -100,4 +102,4 @@ def pagina_administrador():
    return render_template('pagina_administrador.html')
 
 if __name__ == '__main__':
-   app.run( debug = True, port = 13002)
+   app.run( debug = True, port = 13003)

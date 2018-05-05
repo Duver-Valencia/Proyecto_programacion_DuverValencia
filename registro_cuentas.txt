@@ -1,7 +1,2 @@
-Admin,usuario,correo_electronico,contraseña,edad,curso
-kmhjklñ,s@s.com,mlkjhjkl,33,7
-ioi76756rfyguj,s@s.com,jiofryghjkl,12,1
- duver,dsd@f.com,óiuytdfryuhk,12,7
-klgfbhj,dsd@f.com,ltyhj,12,6
-duvervalencia,dsd@f.com,ijougyfrghjk,12,3
- duver,dsd@f.com,iytyfrgukjl,12,3
+
+Duver,dsd@f.com,duver123,17,2
