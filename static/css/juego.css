@@ -1,5 +1,5 @@
 body{
-	background: white;
+	background: blue;
 }
 
 .canvas{
@@ -7,8 +7,16 @@ body{
   padding:0px 0px;
 }
 
+.text{
+	background-color: transparent;
+}
+
+.text:hover{
+	background-color: gray;
+}
+
 .canvas_lugar{
-	padding:0px 300px;
+	padding:10px 0px;
 }
 
 
@@ -25,8 +33,8 @@ a{
 	color: white;
 	text-decoration: none;
 	padding: 10px 20px;
-	margin: 10px 100% 10px 0%;
-	width: 100%;
+	margin: 0px 10px 10px 0%;
+	width: 10%;
 	border-radius: 10px;
 	border: none;
 

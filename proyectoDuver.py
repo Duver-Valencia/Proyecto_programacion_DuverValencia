@@ -29,18 +29,10 @@ def index():
 def inicio_administrador():
    administrador_form = forms.AdministradorForm(request.form)
    if request.method == 'POST' and administrador_form.validate():
-       f = open('inicio_sesión.txt', 'a')
-       f.write('\n')
-       f.write(administrador_form.administrador.data)
-       f.write(',')
-       f.write(administrador_form.contraseña_administrador.data)
-       f.close()
-       l_new = []
-       l_new.append((administrador_form.administrador.data))
-       l_new.append((administrador_form.contraseña_administrador.data))
-       l.append(l_new)
-       print(l)
-       return render_template('pagina_administrador.html')
+    if verificarAdministrador(administrador_form.administrador.data,administrador_form.contraseña_administrador.data):
+      return render_template('pagina_administrador.html')
+    else:
+      print('No exite')
        
    title = 'Juego'
    return render_template('inicio_administrador.html', title = title, form = administrador_form)
@@ -102,4 +94,4 @@ def pagina_administrador():
    return render_template('pagina_administrador.html')
 
 if __name__ == '__main__':
-   app.run( debug = True, port = 13003)
+   app.run( debug = True, port = 14002)

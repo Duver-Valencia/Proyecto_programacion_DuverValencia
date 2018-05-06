@@ -20,6 +20,27 @@ def verificarUsuario(usuario,contraseña):
         return True
     else:
         return False
+
+def verAdministradores():
+    f = open('cuentas_administradores.txt','r')
+    lista_usuarios = []
+    for linea in f:
+        linea = linea.replace('\n','')
+        sub_list = linea.split(',')
+        lista_usuarios.append(sub_list)
+    f.close
+    return lista_usuarios
+
+
+def verificarAdministrador(administrador,contraseña):
+    lista_buscar = []
+    lista_buscar.append(administrador)
+    lista_buscar.append(contraseña)
+    a = verAdministradores()
+    if lista_buscar in a:
+        return True
+    else:
+        return False
     
 '''
 def verificarUsuarioContraseña(usuario,contraseña):
