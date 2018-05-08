@@ -19,9 +19,11 @@ def index():
    comment_form = forms.CommentForm(request.form)
    if request.method == 'POST' and comment_form.validate():
     if verificarUsuario(comment_form.username.data,comment_form.comment.data):
-       return render_template('juego.html')
+       nombre = comment_form.username.data
+       print(nombre)
+       return render_template('juego.html', nombre = nombre)
     else:
-      print('no exite')
+      print('no existe')
    title = 'Juego'
    return render_template('index.html', title = title, form = comment_form)
 
@@ -94,4 +96,4 @@ def pagina_administrador():
    return render_template('pagina_administrador.html')
 
 if __name__ == '__main__':
-   app.run( debug = True, port = 14002)
+   app.run( debug = True, port = 12000)

@@ -8,7 +8,13 @@ body{
 }
 
 .text{
-	background-color: transparent;
+	background-color: lightgreen;
+	border-radius: 0px; 
+	color: black;
+}
+
+.text:hover{
+	background: blue;
 }
 
 .text:hover{
