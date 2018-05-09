@@ -96,4 +96,4 @@ def pagina_administrador():
    return render_template('pagina_administrador.html')
 
 if __name__ == '__main__':
-   app.run( debug = True, port = 12000)
+   app.run( debug = True, port = 12004)

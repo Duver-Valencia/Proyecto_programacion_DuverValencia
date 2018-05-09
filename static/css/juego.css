@@ -1,5 +1,5 @@
 body{
-	background: blue;
+	background:#EFA716 ;
 }
 
 .canvas{
@@ -8,7 +8,7 @@ body{
 }
 
 .text{
-	background-color: lightgreen;
+	background-color: #EFA716;
 	border-radius: 0px; 
 	color: black;
 }
@@ -34,13 +34,12 @@ a{
 	font-size: 18px;
 	font-family: arial;
 	text-align: center;
-	background: blue;
+	background: #EFA716;
 	display: inline-block; 
 	color: white;
 	text-decoration: none;
-	padding: 10px 20px;
 	margin: 0px 10px 10px 0%;
-	width: 10%;
+	width: 20%;
 	border-radius: 10px;
 	border: none;
 
