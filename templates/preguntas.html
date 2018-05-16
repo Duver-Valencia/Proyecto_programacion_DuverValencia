@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="/static/css/preguntas.css" type="text/css">
+{% extends 'base_preguntas.html'%}
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+    {% from "macro_preguntas.html" import render_field %}
+
+<!-- este es un comentario -->
+    <form method="POST"> 
+        <h1 class="titulo">Preguntas</h1>
+        <label>{{nombre}}</label>
+        {{render_field(form.preguntas)}}
+
+
+        <button  type="submit" class="boton">Enviar</button>
+    </form>
+
+
+{% endblock %}

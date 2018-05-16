@@ -1,10 +1,5 @@
-
-Duver,dsd@f.com,duver123,17,2
-Faisu,dsd@f.com,12345,12,7
-camilo,ca@g.com,camilo123,17,5
-juanpablo,j@j.com,juan123,123,4
-elkinnarvaez,elkinlomejorsito@k.com,12345,13,1
-juanjo44,juanjosebetancourtosorio@gmail.com,j24042000,18,1
-duver_2,d@kl.com,duver,12,7
-ddddd,dfsfd@v.com,12345,34,7
-Juan,j@g.com,12345,23,5
+usuario,correo,contraseña,edad,curso
+Duver,duver@h.com,duver123,17,5
+Duvere,du@f.com,12345,123,9
+duver,s@ds.com,duver,23,4
+camiloerazo,juancamiloerazo82@gmail.com,camiloerazo1,17,0

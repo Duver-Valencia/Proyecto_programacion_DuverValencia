@@ -2,6 +2,10 @@
 <!DOCTYPE html>
 <html><!-- este es un comentario -->
 	<head>
+		<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+         rel = "stylesheet">
+      	<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+      	<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 		<title></title>
 		<style type="text/css">
 		#canvas {
@@ -15,6 +19,10 @@
 		<a href="/inicio_sesión" >Cerrar sesión</a>
 		<a class="text">Usuario: {{nombre}}</a>
 		<a >Guardar</a>
+		<a href="/saludo" nombre= nombre>Saludo</a>
+		<a href="/preguntas">Preguntas</a>
+		<a href="">Vidas:</a><span id="vidas" >{{vida}}</span>
+		<a href="">Grado:</a><span>{{grado}}</span>
 	
 	</div>
 	<div class="canvas_lugar">
@@ -24,6 +32,7 @@
 
 			let canvas = document.getElementById("canvas")
 			let contexto = canvas.getContext("2d")
+			let vidas = document.getElementById('vidas').innerHTML
 
 			let mapa = new Image();
 			let muñeco = new Image();
@@ -108,7 +117,7 @@
 			[9,0,0,0,0,0,0,9,9,9,0,0,0,0,0,0,9,9,9,0,0,9,9,9,0,0,0,0,0,0,0,0,9,9,9,0,0,0,0,0,0,9],
 			[9,0,0,0,0,0,0,9,9,9,0,0,0,0,0,0,9,9,9,0,0,9,9,9,0,0,0,0,0,0,0,0,9,9,9,0,0,0,0,0,0,9],
 			[9,0,0,0,9,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,9,9,0,0,0,9],
-			[9,0,0,0,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,9,0,0,0,9],
+			[9,0,0,0,9,9,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,9,0,0,0,9],
 			[9,0,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,0,9],
 			[9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9],
 			[9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9],
@@ -166,15 +175,26 @@
 				contexto.clearRect(0,0,1344,544)
 				contexto.drawImage(mapa,0,0,1344,544)
 				contexto.drawImage(conejo,x,y,32,32)
+				$('#vidas').text(vidas)
+
 			}
 
 
 
 			document.onkeypress = presionar
 
+			function disminuirVidas() {
+				vidas = parseInt(vidas) - 1
+				vidas = vidas.toString()
+			}
+
+
+
 			function presionar(event) {
 				const tecla = event.key;
 				if ((matriz) === (matriz1)){
+
+
 					if ((tecla === 'w')&&(matriz[(fila)-1][columna] === 0)){
 					y -= 32
 					fila -= 1
@@ -196,12 +216,20 @@
 					}
 
 					else if ((tecla === 'w')&&(matriz[(fila)-1][columna] === 1)){
-						x = 608
-						y = 512
-						columna = 19
-						fila = 16
-						mapa.src = "../static/edificio_1_verde.png"
-						matriz = matriz4
+						
+						var r = confirm("¿Ingresar a grado1?");
+						if (r == true) {
+							x = 608
+							y = 512
+							columna = 19
+							fila = 16
+							mapa.src = "../static/edificio_1_verde.png"
+							matriz = matriz4
+    						
+						} else {
+							alert('No entras')
+						}
+						console.log('Grado 0')
 					}
 
 					else if ((tecla === 'w')&&(matriz[(fila)-1][columna] === 2)){
@@ -211,6 +239,7 @@
 						fila = 16
 						mapa.src = "../static/edificio_1_rojo.png"
 						matriz = matriz4
+						console.log('Grado 1')
 					}
 
 					else if ((tecla === 'w')&&(matriz[(fila)-1][columna] === 3)){
@@ -220,6 +249,7 @@
 						fila = 16
 						mapa.src = "../static/edificio_1_amarillo.png"
 						matriz = matriz4
+						console.log('Grado 2')
 					}
 
 					else if ((tecla === 'w')&&(matriz[(fila)-1][columna] === 4)){
@@ -229,6 +259,7 @@
 						fila = 16
 						mapa.src = "../static/edificio_1_azul.png"
 						matriz = matriz4
+						console.log('Grado 3')
 					}
 
 					else if ((tecla === 'd')&&(matriz[fila][(columna)+1]===12)){
@@ -245,6 +276,7 @@
 						fila = 16
 						mapa.src = "../static/edificio_1_rojo.png"
 						matriz = matriz4
+						console.log('Grado 5')
 					}
 
 					else if ((tecla === 's')&&(matriz[(fila)+1][columna] === 5)){
@@ -254,6 +286,7 @@
 						fila = 16
 						mapa.src = "../static/edificio_1_amarillo.png"
 						matriz = matriz4
+						console.log('Grado 4')
 					}
 
 				}
@@ -308,6 +341,18 @@
 					columna -=1
 					}
 
+					else if ((tecla === 'a')&&(matriz[fila][(columna)-1] === 6)){
+					x -= 32
+					columna -=1
+					var r = confirm("Contesta");
+					if (r == true) {
+    					alert('Correcto')
+					} else {
+				    	disminuirVidas()
+				    	alert('Falso')
+					}
+					}
+
 					else if ((tecla === 'd')&&(matriz[fila][(columna)+1]===0)){
 					x += 32
 					columna +=1
@@ -353,6 +398,7 @@
 						fila = 16
 						mapa.src = "../static/edificio_2_azul.png"
 						matriz = matriz5
+						console.log('Grado 6')
 					}
 
 					else if ((tecla === 'w')&&(matriz[(fila)-1][columna] === 8)){
@@ -362,6 +408,7 @@
 						fila = 16
 						mapa.src = "../static/edificio_2_verde.png"
 						matriz = matriz5
+						console.log('Grado 7')
 					}
 
 					else if ((tecla === 's')&&(matriz[(fila)+1][columna] === 28)){
@@ -371,6 +418,7 @@
 						fila = 16
 						mapa.src = "../static/edificio_2_amarillo.png"
 						matriz = matriz5
+						console.log('Grado 8')
 					}
 
 					else if ((tecla === 's')&&(matriz[(fila)+1][columna] === 29)){
@@ -380,6 +428,7 @@
 						fila = 16
 						mapa.src = "../static/edificio_2_rojo.png"
 						matriz = matriz5
+						console.log('Grado 9')
 					}
 
 					else if ((tecla === 'w')&&(matriz[(fila)-1][columna] === 23)){
@@ -475,6 +524,7 @@
 
 					mapa.src = "../static/edificio_3_azul.png"
 					matriz = matriz6
+					console.log('Grado 10')
 					}
 
 					else if ((tecla === 'w')&&(matriz[(fila)-1][columna] === 11)){
@@ -485,6 +535,7 @@
 
 					mapa.src = "../static/edificio_3_rojo.png"
 					matriz = matriz6
+					console.log('Grado 11')
 					}
 				
 				
@@ -502,7 +553,6 @@
 
 
 		</script>
-
 
 	</div>
 	</body>

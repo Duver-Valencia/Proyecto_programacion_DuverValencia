@@ -8,8 +8,14 @@ def verUsuarios():
     f.close
     return lista_usuarios
 
-
-
+def contraseña(usuario):
+    a = verUsuarios()
+    i = 0
+    while i < len (a):
+        if a[i][0] == usuario:
+            return a[i][1]
+        else:
+            i = i + 1
 
 def verificarUsuario(usuario,contraseña):
     lista_buscar = []
@@ -20,6 +26,19 @@ def verificarUsuario(usuario,contraseña):
         return True
     else:
         return False
+    
+
+
+def compararUsuario(usuario):
+    a = verUsuarios()
+    i = 0
+    estado = True
+    if usuario in a[i]:
+        estado = False
+        return estado
+    else:
+        estado = True
+    return estado
 
 def verAdministradores():
     f = open('cuentas_administradores.txt','r')
@@ -41,6 +60,10 @@ def verificarAdministrador(administrador,contraseña):
         return True
     else:
         return False
+
+
+
+
     
 '''
 def verificarUsuarioContraseña(usuario,contraseña):

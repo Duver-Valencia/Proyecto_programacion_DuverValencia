@@ -1,0 +1,83 @@
+id,materia,grado,pregunta
+0,Matematicas,0,¿Cuanto es 3-2?
+1,Matematicas,0,¿Cuanto es 2+1?
+2,Matematicas,0,¿Cuanto es 3-1?
+3,Matematicas,0,¿Que numero sigue del 3?
+4,Español,0,¿Cual es la primera vocal?
+5,Español,0,¿Cuantas vocales existen?
+6,Español,0,Seleccione una letra que no sea una vocal
+7,Español,0,¿Cual es la tercera vocal?
+8,Artistica,0,¿Cual de estos es un color primario?
+9,Artistica,0,¿Cual es la figura del sol?
+10,Artistica,0,¿Cuantos lados tiene un cuadrado?
+11,Artistica,0,¿Cuantos lados tiene un triangulo?
+12,Etica,0,¿Cual es un valor?
+13,Etica,0,¿Que es respeto?
+14,Etica,0,¿Cual de estos no es un valor?
+15,Etica,0,¿Cual de estas es una emoción?
+16,Matematicas,1,¿Cuanto es 15+7?
+17,Matematicas,1,¿Cuanto es 12-3?
+18,Matematicas,1,¿Cuanto es 2x3?
+19,Matematicas,1,¿Cual de estos es un numero par?
+20,Español,1,¿Cuantas letras tiene la palabra 'carro'?
+21,Español,1,¿Cual de estas no es una fruta?
+22,Español,1,¿Que letra sigiue en el abecedario despues de la A?
+23,Español,1,¿Cual es la ultima letra del abecedario?
+24,Artistica,1,¿Cuantas esquinas tiene un rectangulo?
+25,Artistica,1,¿Cual de estos no es un color primario?
+26,Artistica,1,¿Cual de estos es un color secundario?
+27,Artistica,1,¿Que color se obtiene mezclando el color amarillo y el azul?
+28,Etica,1,¿Cual de estos es ?
+29,Etica,1,¿Que es el amor?
+30,Etica,1,¿Cuando soy un buen amigo?
+31,Etica,1,¿Que es la alegria?
+32,Matematicas,2,¿Cuanto es 3x5?
+33,Matematicas,2,¿Cuanto es 1+4?
+34,Matematicas,2,¿Cual de estos es un numero impar?
+35,Matematicas,2,¿Cuanto es 2/2?
+36,Español,2,¿Cual es un antonimo de alegria?
+37,Español,2,¿Cual es un sinonimo de miedo?
+38,Español,2,¿Cuantas silabas tiene la palabra 'zapato'?
+39,Español,2,¿Cual de estos no es un verbo?
+40,Artistica,2,¿Cual de estos es un color terciario?
+41,Artistica,2,¿Cual de estos no es un instrumento musical?
+42,Artistica,2,¿Cuantos lados tiene un cubo?
+43,Artistica,2,¿Que colores tiene la bandera de Colombia?
+44,Etica,2,¿Que es la solidaridad?
+45,Etica,2,¿Cual de estos es un valor?
+46,Etica,2,¿Cual de estos no es un sentimiento?
+47,Etica,2,¿Que es la honestidad?
+48,Matematicas,3,¿Cuanto es 7 + 8?
+49,Matematicas,3,¿Cuanto es 14 / 2?
+50,Matematicas,3,¿Cuanto es 28 - 13?
+51,Matematicas,3,¿Cuanto es 6 x 4?
+52,Español,3,¿Cual de estas es una de las partes de un cuento?
+53,Español,3,¿Cual de estas palabras está mal escrita?
+54,Español,3,¿Cual de estos es un sinonimo de hogar?
+55,Español,3,¿Cual de estas palabras está bien escrita?
+56,Sociales,3,¿Cual es la capital de Colombia?
+57,Sociales,3,¿Cual de estas es una ciudad de Colombia?
+58,Sociales,3,¿Que es Colombia?
+59,Sociales,3,¿Cuales son los colores de la bandera de Colombia?
+60,Etica,3,¿Cual de estas es una mala actitud?
+61,Etica,3,¿Que es la solidaridad?
+62,Etica,3,¿Cual de estos es un valor?
+63,Etica,3,¿Que es lo contrario a amar?
+64,Matematicas,4,¿Cuanto es 16 \ 4?
+65,Matematicas,4,¿Cuanto es 135 +31?
+66,Matematicas,4,¿Cuando es 7 x 8?
+67,Matematicas,4,¿Cuanto es el doble de 13?
+68,Español,4,
+69,Español,4,
+70,Español,4,
+71,Español,4,
+
+
+
+
+
+
+
+
+
+
