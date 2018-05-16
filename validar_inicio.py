@@ -1,4 +1,6 @@
 def verUsuarios():
+    '''Esta función retorna una lista de los usuarios registrados con sus respectivas contraseñas
+    '''
     f = open('inicio_sesión.txt','r')
     lista_usuarios = []
     for linea in f:
@@ -8,7 +10,10 @@ def verUsuarios():
     f.close
     return lista_usuarios
 
+
 def contraseña(usuario):
+    '''Esta funcion recibe como parametro un usuario y retorna la contraseña correspondiente si está registrado
+    '''
     a = verUsuarios()
     i = 0
     while i < len (a):
@@ -18,6 +23,9 @@ def contraseña(usuario):
             i = i + 1
 
 def verificarUsuario(usuario,contraseña):
+    '''Esta funcion recibe como parametros un usuario con su respectiva contraseña y 
+    retorna True si el usuario está registrado con esa contraseña, de lo contrario retorna False
+    '''
     lista_buscar = []
     lista_buscar.append(usuario)
     lista_buscar.append(contraseña)
@@ -27,20 +35,27 @@ def verificarUsuario(usuario,contraseña):
     else:
         return False
     
-
-
 def compararUsuario(usuario):
+    '''Esta funcion recibe como parametro el nombre de un usuario y retorna True si el usuario
+    no se encuentra registrado, de lo contrario retorna False
+    '''
     a = verUsuarios()
     i = 0
     estado = True
-    if usuario in a[i]:
-        estado = False
-        return estado
-    else:
-        estado = True
+    print(a)
+    while i < len(a):
+        if usuario == a[i][0]:
+            estado = False
+            return estado
+        else:
+            i += 1
     return estado
 
+
 def verAdministradores():
+    '''Esta funcion retorna una lista de listas de los usuarios que se encuentran registrados como
+    administradores 
+    '''
     f = open('cuentas_administradores.txt','r')
     lista_usuarios = []
     for linea in f:
@@ -50,8 +65,10 @@ def verAdministradores():
     f.close
     return lista_usuarios
 
-
 def verificarAdministrador(administrador,contraseña):
+    '''Esta función recibe como parametros un nombre de administrador y una contraseña. Retorna True si
+    el adimnistrador se encuentra registrado con esa contraseña, de lo contrario retorn False.
+    '''
     lista_buscar = []
     lista_buscar.append(administrador)
     lista_buscar.append(contraseña)

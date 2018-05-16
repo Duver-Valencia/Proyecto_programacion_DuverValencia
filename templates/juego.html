@@ -1,12 +1,12 @@
-<link rel="stylesheet" href="/static/css/juego.css" type="text/css">
+<link rel="stylesheet" href="/static/css/juego.css" type="text/css"> <!-- Hago referencia a un archivo css --> 
 <!DOCTYPE html>
-<html><!-- este es un comentario -->
+<html> <!-- Documento del funcionamiento del juego --> 
 	<head>
 		<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
-         rel = "stylesheet">
+         rel = "stylesheet"> <!-- Importo jquery --> 
       	<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
       	<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-		<title></title>
+		<title>Juego</title>
 		<style type="text/css">
 		#canvas {
 			border: 1px solid black
@@ -15,35 +15,38 @@
 	</head>
 	<body style="background:#EFA716;">
 	<div class="links">
-
+		 <!--___________ Empieza la barra de botones ___________--> 
 		<a href="/inicio_sesión" >Cerrar sesión</a>
 		<a class="text">Usuario: {{nombre}}</a>
 		<a >Guardar</a>
-		<a href="/saludo" nombre= nombre>Saludo</a>
+		<a href="/saludo" nombre= nombre>Datos</a>
 		<a href="/preguntas">Preguntas</a>
 		<a href="">Vidas:</a><span id="vidas" >{{vida}}</span>
 		<a href="">Grado:</a><span>{{grado}}</span>
+		 <!--___________ Termina la barra de botones ___________--> 
 	
 	</div>
 	<div class="canvas_lugar">
 		
 		<canvas class="canvas"  id="canvas" width="1344" height="544"></canvas>
+		<!--___________ Empieza el documento script ___________--> 
 		<script type="text/javascript">
 
 			let canvas = document.getElementById("canvas")
 			let contexto = canvas.getContext("2d")
-			let vidas = document.getElementById('vidas').innerHTML
+			let vidas = document.getElementById('vidas').innerHTML /*__Variable para contar las vidas__*/
 
-			let mapa = new Image();
-			let muñeco = new Image();
-			let conejo = new Image();
+			let mapa = new Image(); /*__Variable para la imagen del mapa__*/
+			let conejo = new Image();  /*__Variable para la imagen del jugador__*/
 
-			mapa.src = "../static/mapa_juego_1.png"
-			muñeco.src = "muñeco.jpg"
-			conejo.src = "../static/conejo.png"
+			mapa.src = "../static/mapa_juego_1.png"  /*__Establesco imagen del mapa__*/
+			conejo.src = "../static/conejo.png"   /*__Establesco imagen del jugador__*/
 
-			let x = 288
-			let y = 512
+			let x = 288  /*__Variable para el movimiento en x del jugador__*/
+			let y = 512  /*__Variable para el movimiento en y del jugador__*/
+
+			/*_________________________ Matriz para el primer mundo ______________________________-*/
+
 			let matriz1 = [
 			[9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],
 			[9,0,0,0,0,0,0,0,0,0,9,9,9,0,0,0,0,0,9,9,9,0,0,0,0,0,9,9,9,0,0,0,0,0,9,9,9,0,0,0,0,9],
@@ -63,6 +66,8 @@
 			[9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9],
 			[9,9,9,9,9,9,9,0,0,0,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9]
 			]
+
+			/*_________________________ Matriz para el segundo mundo ______________________________-*/
 
 			let matriz2 = [
 			[9,9,9,9,9,23,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],
@@ -84,6 +89,8 @@
 			[9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],
 			]
 
+			/*_________________________ Matriz para el tercer mundo ______________________________-*/
+
 			let matriz3 = [
 			[9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],
 			[9,0,0,9,9,9,9,0,0,0,0,0,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,0,0,0,0,0,0,0,9],
@@ -103,6 +110,8 @@
 			[9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9],
 			[9,9,9,9,9,32,32,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9]
 			]
+
+			/*____________________Matriz para el interior del primer mundo______________________-*/
 
 			let matriz4 = [
 			[9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],
@@ -124,6 +133,8 @@
 			[9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,1,1,0,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9]
 			]
 
+			/*____________________Matriz para el interior del segundo mundo______________________-*/
+
 			let matriz5 = [
 			[9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],
 			[9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9],
@@ -143,6 +154,8 @@
 			[9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9],
 			[9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,22,22,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9]
 			]
+
+			/*____________________Matriz para el interior del tercer mundo______________________-*/
 
 			let matriz6 = [
 			[9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],
@@ -164,26 +177,29 @@
 			[9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,33,33,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9]
 			]
 
-			let matriz = matriz1
-			let fila = 16
-			let columna = 9
+			let matriz = matriz1 /* Varible para la matriz que se está manejando */
+			let fila = 16 /* Varible para la fila actual del jugador en la matriz que se está manejando */
+			let columna = 9 /* Varible para la columna actual del jugador en la matriz que se está manejando */
 
 
 			contexto.fillStyle = "blue"
 
-			function pintar(){
-				contexto.clearRect(0,0,1344,544)
-				contexto.drawImage(mapa,0,0,1344,544)
-				contexto.drawImage(conejo,x,y,32,32)
-				$('#vidas').text(vidas)
+			function pintar(){/* Funcion que reestablece la posicion del jugador y las actualizaciones
+			de la pagina */
+				contexto.clearRect(0,0,1344,544) /* Pintar cuadro para dibujar */
+				contexto.drawImage(mapa,0,0,1344,544) /* Pintar el mapa */
+				contexto.drawImage(conejo,x,y,32,32) /* Pintar el jugador */
+				$('#vidas').text(vidas) /* Actualizar las vidas */
 
 			}
 
 
 
-			document.onkeypress = presionar
+			document.onkeypress = presionar /* Establesco forma en la que se manejara los movimientos
+			del jugador por el mapa */
 
 			function disminuirVidas() {
+				/* Esta funcion se encarga de disminuir la cantidad de vidas del jugador */
 				vidas = parseInt(vidas) - 1
 				vidas = vidas.toString()
 			}
@@ -191,9 +207,9 @@
 
 
 			function presionar(event) {
+				/* Esta función se encarga de verificar que movimiento hace el jugador  */
 				const tecla = event.key;
-				if ((matriz) === (matriz1)){
-
+				if ((matriz) === (matriz1)){ /* Movimientos del jugador en la primera matriz */
 
 					if ((tecla === 'w')&&(matriz[(fila)-1][columna] === 0)){
 					y -= 32
@@ -292,85 +308,8 @@
 				}
 
 
-
-				else if ((matriz) === (matriz5)){
-					if ((tecla === 'w')&&(matriz[(fila)-1][columna] === 0)){
-					y -= 32
-					fila -= 1
-					}
-
-					else if ((tecla === 's')&&(matriz[(fila)+1][columna] === 0)){
-					y += 32
-					fila += 1
-					}
-
-					else if ((tecla === 'a')&&(matriz[fila][(columna)-1] === 0)){
-					x -= 32
-					columna -=1
-					}
-
-					else if ((tecla === 'd')&&(matriz[fila][(columna)+1]===0)){
-					x += 32
-					columna +=1
-					}
-
-					else if ((tecla === 's')&&(matriz[(fila)+1][columna] === 22)){
-						x = 1312
-						y = 256
-						columna = 41
-						fila = 8
-						mapa.src = "../static/Mapa_juego_2.png"
-						matriz = matriz2
-					}
-
-				}
-
-				else if ((matriz) === (matriz4)){
-					if ((tecla === 'w')&&(matriz[(fila)-1][columna] === 0)){
-					y -= 32
-					fila -= 1
-					}
-
-					else if ((tecla === 's')&&(matriz[(fila)+1][columna] === 0)){
-					y += 32
-					fila += 1
-					}
-
-					else if ((tecla === 'a')&&(matriz[fila][(columna)-1] === 0)){
-					x -= 32
-					columna -=1
-					}
-
-					else if ((tecla === 'a')&&(matriz[fila][(columna)-1] === 6)){
-					x -= 32
-					columna -=1
-					var r = confirm("Contesta");
-					if (r == true) {
-    					alert('Correcto')
-					} else {
-				    	disminuirVidas()
-				    	alert('Falso')
-					}
-					}
-
-					else if ((tecla === 'd')&&(matriz[fila][(columna)+1]===0)){
-					x += 32
-					columna +=1
-					}
-
-					else if ((tecla === 's')&&(matriz[(fila)+1][columna] === 1)){
-						x = 288
-						y = 512
-						columna = 9
-						fila = 16
-						mapa.src = "../static/mapa_juego_1.png"
-						matriz = matriz1
-					}
-
-				}
-
-
 				else if ((matriz) === (matriz2)){
+					/* Movimientos del jugador en la segunda matriz */
 					if ((tecla === 'w')&&(matriz[(fila)-1][columna] === 0)){
 					y -= 32
 					fila -= 1
@@ -449,43 +388,9 @@
 
 				}
 
-				else if ((matriz) === (matriz6)){
-
-					if ((tecla === 'w')&&(matriz[(fila)-1][columna] === 0)){
-					y -= 32
-					fila -= 1
-					}
-
-
-					else if ((tecla === 's')&&(matriz[(fila)+1][columna] === 0)){
-					y += 32
-					fila += 1
-					}
-
-					else if ((tecla === 'a')&&(matriz[fila][(columna)-1] === 0)){
-					x -= 32
-					columna -=1
-					}
-
-					else if ((tecla === 'd')&&(matriz[fila][(columna)+1]===0)){
-					x += 32
-					columna +=1
-					}
-
-					else if ((tecla === 's')&&(matriz[(fila)+1][columna] === 33)){
-					fila = 16
-					columna = 5
-					x = 160
-					y = 512
-					mapa.src = "../static/mapa_juego3.png"
-					matriz = matriz3
-
-					}
-
-					
-				}
 
 				else if ((matriz) === (matriz3)){
+					/* Movimientos del jugador en la tercera matriz */
 					if ((tecla === 'w')&&(matriz[(fila)-1][columna] === 0)){
 					y -= 32
 					fila -= 1
@@ -540,6 +445,128 @@
 				
 				
 				}
+
+
+				else if ((matriz) === (matriz4)){
+					/* Movimientos del jugador en la cuarta matriz */
+					if ((tecla === 'w')&&(matriz[(fila)-1][columna] === 0)){
+					y -= 32
+					fila -= 1
+					}
+
+					else if ((tecla === 's')&&(matriz[(fila)+1][columna] === 0)){
+					y += 32
+					fila += 1
+					}
+
+					else if ((tecla === 'a')&&(matriz[fila][(columna)-1] === 0)){
+					x -= 32
+					columna -=1
+					}
+
+					else if ((tecla === 'a')&&(matriz[fila][(columna)-1] === 6)){
+					x -= 32
+					columna -=1
+					var r = confirm("Contesta");
+					if (r == true) {
+    					alert('Correcto')
+					} else {
+				    	disminuirVidas()
+				    	alert('Falso')
+					}
+					}
+
+					else if ((tecla === 'd')&&(matriz[fila][(columna)+1]===0)){
+					x += 32
+					columna +=1
+					}
+
+					else if ((tecla === 's')&&(matriz[(fila)+1][columna] === 1)){
+						x = 288
+						y = 512
+						columna = 9
+						fila = 16
+						mapa.src = "../static/mapa_juego_1.png"
+						matriz = matriz1
+					}
+
+				}
+
+
+
+
+				else if ((matriz) === (matriz5)){
+					/* Movimientos del jugador en la quinta matriz */
+					if ((tecla === 'w')&&(matriz[(fila)-1][columna] === 0)){
+					y -= 32
+					fila -= 1
+					}
+
+					else if ((tecla === 's')&&(matriz[(fila)+1][columna] === 0)){
+					y += 32
+					fila += 1
+					}
+
+					else if ((tecla === 'a')&&(matriz[fila][(columna)-1] === 0)){
+					x -= 32
+					columna -=1
+					}
+
+					else if ((tecla === 'd')&&(matriz[fila][(columna)+1]===0)){
+					x += 32
+					columna +=1
+					}
+
+					else if ((tecla === 's')&&(matriz[(fila)+1][columna] === 22)){
+						x = 1312
+						y = 256
+						columna = 41
+						fila = 8
+						mapa.src = "../static/Mapa_juego_2.png"
+						matriz = matriz2
+					}
+
+				}
+
+
+
+				else if ((matriz) === (matriz6)){
+					/* Movimientos del jugador en la sexta matriz */
+
+					if ((tecla === 'w')&&(matriz[(fila)-1][columna] === 0)){
+					y -= 32
+					fila -= 1
+					}
+
+
+					else if ((tecla === 's')&&(matriz[(fila)+1][columna] === 0)){
+					y += 32
+					fila += 1
+					}
+
+					else if ((tecla === 'a')&&(matriz[fila][(columna)-1] === 0)){
+					x -= 32
+					columna -=1
+					}
+
+					else if ((tecla === 'd')&&(matriz[fila][(columna)+1]===0)){
+					x += 32
+					columna +=1
+					}
+
+					else if ((tecla === 's')&&(matriz[(fila)+1][columna] === 33)){
+					fila = 16
+					columna = 5
+					x = 160
+					y = 512
+					mapa.src = "../static/mapa_juego3.png"
+					matriz = matriz3
+
+					}
+
+					
+				}
+
 				
 				
 
@@ -557,3 +584,5 @@
 	</div>
 	</body>
 </html>
+
+<!--___ Fin del documento ___-->

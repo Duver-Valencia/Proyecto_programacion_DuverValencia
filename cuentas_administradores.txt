@@ -1,1 +1,2 @@
+administrador,contraseña
 Duver,duver422

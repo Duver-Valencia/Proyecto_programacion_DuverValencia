@@ -1,32 +1,37 @@
 ##Autor: Duver Valencia
-from flask import Flask
+
+#Importo los modulos necesarios desde flask y las funciones de python 
+from flask import Flask 
 from flask import render_template
 from flask import request
 import forms
 from validar_inicio import*
 from funciones import*
-l=[]
 
-nombre = ''
+
+nombre = '' #Variable para el nombre del usuario que está jugando
 
 app = Flask(__name__)
 
 @app.route('/' , methods = ['GET','POST'])
 def principal():
+  #Está funcion renderiza la pagina inicial
   return render_template('pagina_inicial.html')
 
 @app.route('/inicio_sesión', methods = ['GET','POST'])
 def index():
+  #Está es la ruta para la pagina de inicio de sesión
+  #Está funcion renderiza la pagina del juego cuando inicia sesión
   global nombre
   comment_form = forms.CommentForm(request.form)
-  if request.method == 'POST' and comment_form.validate():
+  if request.method == 'POST' and comment_form.validate(): #Valido el envio correcto del formulario con flask
     if verificarUsuario(comment_form.username.data,comment_form.comment.data):
        nombre = comment_form.username.data
        vida = 5
-       grado = verGrado(nombre)
-       print(nombre)
+       grado = verGrado(nombre) 
        return render_template('juego.html', nombre = nombre, vida = vida, grado = grado)
     else:
+      #Cuando el jugador y la contraseña no coinciden
       print('no existe')
   title = 'Juego'
   return render_template('index.html', title = title, form = comment_form)
@@ -34,6 +39,7 @@ def index():
 
 @app.route('/preguntas', methods = ['GET','POST'])
 def preguntas():
+  #Esta es la pagina de las preguntas en flask
   global nombre
   preguntas_form = forms.PreguntasForm(request.form)
   title = 'Preguntas'
@@ -42,11 +48,14 @@ def preguntas():
 
 @app.route('/inicio_administrador', methods = ['GET','POST'])
 def inicio_administrador():
+  #Está es la ruta para la pagina de inicio de sesión del administrador
+  #Está funcion renderiza la pagina del administrador cuando inicia sesión
    administrador_form = forms.AdministradorForm(request.form)
-   if request.method == 'POST' and administrador_form.validate():
+   if request.method == 'POST' and administrador_form.validate(): #Valido en envio correcto del formulario con flask
     if verificarAdministrador(administrador_form.administrador.data,administrador_form.contraseña_administrador.data):
       return render_template('pagina_administrador.html')
     else:
+      #Cuando el administrador y la contraseña no coinciden
       print('No exite')
        
    title = 'Juego'
@@ -59,9 +68,11 @@ l_registro=[]
 
 @app.route('/registro', methods = ['GET','POST'])
 def registro():
+  #Está es la ruta para la pagina de registro
    registro_form = forms.RegistroForm(request.form)
-   if request.method == 'POST' and registro_form.validate():
+   if request.method == 'POST' and registro_form.validate(): #Valido el envio correcto del formulario con flask
     if compararUsuario(registro_form.username_registro.data):
+      #Añado la información necesaria a el bloc de notas que corresponde al registro y el inicio de sesión
        f = open('registro_cuentas.txt', 'a')
        f.write('\n')
        f.write(registro_form.username_registro.data)
@@ -108,6 +119,7 @@ def registro():
 
 @app.route('/saludo')
 def saludo():
+  #Esta funcion renderiza a una pegina que le dice cual es el usuario y la contraseña del jugador
   global nombre
   con = contraseña(nombre)
   return render_template('saludo.html', nombre = nombre, contraseña = con)
@@ -115,10 +127,12 @@ def saludo():
 
 @app.route('/juego')
 def juego():
+  #Esta funcion renderiza la pagina del juego
    return render_template('juego.html')
 
 @app.route('/pagina_administrador')
 def pagina_administrador():
+  #Está funcion renderiza la pagina del administrador
    return render_template('pagina_administrador.html')
 
 if __name__ == '__main__':
