@@ -77,20 +77,22 @@ def index():
 
 @app.route('/logout', methods = ['GET','POST'])
 def logout():
-   global nombre
-   session.pop('username', None)
-   comment_form = forms.CommentForm(request.form)
-   if request.method == 'POST':
+  global nombre
+  session.pop('username', None)
+  comment_form = forms.CommentForm(request.form)
+  if request.method == 'POST':
     if comment_form.validate(): #Valido el envio correcto del formulario con flask
       if verificarUsuario(comment_form.username.data,comment_form.comment.data):
         nombre = comment_form.username.data
         session['username'] = nombre
         vida = verVidas(nombre)
         grado = verGrado(nombre) 
-        return render_template('juego.html', nombre = nombre, vida = vida, grado = grado)
+        mapaGeneral = leerMatriz(int(grado))
+        preguntas = diccionarioPreguntas()
+        return render_template('juego.html', nombre = nombre, vida = vida, grado = grado,mapa=mapaGeneral,preguntas = preguntas)
 
-   title = 'Juego'
-   return render_template('index.html',title = title, form = comment_form )
+  title = 'Juego'
+  return render_template('index.html',title = title, form = comment_form )
 
 @app.route('/preguntas', methods = ['GET','POST'])
 def preguntas():

@@ -266,6 +266,7 @@
 					else if ((tecla === 'w')&&(matriz[(fila)-1][columna] === 1)&&(window.variablesJuego.grado == 1)){
 						console.log(window.variablesJuego.grado)
 						Grado1()
+
 						var r = confirm("¿Ingresar a grado1?");
 						if (r == true) {
 							x = 608
@@ -291,11 +292,11 @@
 						matriz = matriz4
 						console.log('Grado 1')
 					}
-					/*
+					
 					else if ((tecla === 'w')&&(matriz[(fila)-1][columna] === 2)&&(window.variablesJuego.gradoo != 2)){
 						alert('Este edificio corresponde a el grado 2 y usted se encuentra cursando el grado'+''+window.variablesJuego.grado)
 					}
-					*/
+					
 					else if ((tecla === 'w')&&(matriz[(fila)-1][columna] === 3)){
 						x = 608
 						y = 512
@@ -523,6 +524,7 @@
 							x -= 32
 							columna -=1
 							preguntas = (window.variablesJuego.preguntas)
+
 							for (i in (preguntas)){
 								if (preguntas[i]['materia']== ('Matematicas')){
 									console.log('_______________________________')
