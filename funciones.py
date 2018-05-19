@@ -95,6 +95,21 @@ def buscarRespuestas(id_pregunta):
     return(respuestas)
 
 
+def diccionarioPreguntas():
+  d = [{'grado':0,
+  'materia':'Matematicas',
+  'preguntas':['¿Cuanto es 3-2?','¿Cuanto es 2+1?','¿Cuanto es 3-1?','¿Que numero sigue del 3?']},
+  {'grado':0,
+  'materia':'Español',
+  'preguntas':['¿Cual es la primera vocal?','¿Cuantas vocales existen?','Seleccione una letra que no sea una vocal','¿Cual es la tercera vocal?']},
+  {'grado':0,
+  'materia':'Artistica',
+  'preguntas':['¿Cual de estos es un color primario?','¿Cual es la forma del sol?','¿Cuantos lados tiene un cuadrado?','¿Cuantos lados tiene un triangulo?']},
+  {'grado':0,
+  'materia':'Etica',
+  'preguntas':['¿Cual de estos es un valor?','¿Que es respeto?','¿Cual de estos no es un valor?','¿Cual de estas es una emoción?']}]
+  return d
+
 
 '''
 def verOpciones(lista_preguntas):

@@ -35,9 +35,10 @@ def leerMatriz(grado):
   #elif [10,11]
 
   return retornarMatriz(ruta)
+
+
+
   
-
-
 
 
 
@@ -47,8 +48,8 @@ def principal():
   if 'username' in session:
     print('ya esta el usuario')
     mapaGeneral = leerMatriz(int(1))
-    print(mapaGeneral)
-    return render_template('juego.html', nombre = session['username'], vida = 5, grado = 3,mapa=mapaGeneral)
+    preguntas = diccionarioPreguntas()
+    return render_template('juego.html', nombre = session['username'], vida = 5, grado = 3,mapa=mapaGeneral, preguntas = preguntas)
   return render_template('pagina_inicial.html')
 
 
@@ -67,8 +68,8 @@ def index():
         vida = verVidas(nombre)
         grado = verGrado(nombre) 
         mapaGeneral = leerMatriz(int(grado))
-        print(mapaGeneral)
-        return render_template('juego.html', nombre = nombre, vida = vida, grado = grado,mapa=mapaGeneral)
+        preguntas = diccionarioPreguntas()
+        return render_template('juego.html', nombre = nombre, vida = vida, grado = grado,mapa=mapaGeneral,preguntas = preguntas)
 
   title = 'Juego'
   return render_template('index.html', title = title, form = comment_form)

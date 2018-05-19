@@ -11,7 +11,7 @@ id,materia,grado,pregunta
 9,Artistica,0,¿Cual es la forma del sol?
 10,Artistica,0,¿Cuantos lados tiene un cuadrado?
 11,Artistica,0,¿Cuantos lados tiene un triangulo?
-12,Etica,0,¿Cual es un valor?
+12,Etica,0,¿Cual de estos es un valor?
 13,Etica,0,¿Que es respeto?
 14,Etica,0,¿Cual de estos no es un valor?
 15,Etica,0,¿Cual de estas es una emoción?
