@@ -7,16 +7,51 @@ from flask import request
 import forms
 from validar_inicio import*
 from funciones import*
+from flask import session
+from flask import jsonify
+import json
 
 
 nombre = '' #Variable para el nombre del usuario que está jugando
 
 app = Flask(__name__)
 
+def retornarMatriz(ruta):
+  f = open(ruta,'r')
+  matriz = []
+  for linea in f:
+    linea = linea.replace('\n','')
+    fila = linea.split(',')
+    matriz.append([int(i) for i in fila])
+  f.close()
+  return matriz
+
+def leerMatriz(grado):
+  matriz = []
+  if grado in [1,2,3,4,5]:
+    ruta = './static/matriz1.txt'
+  #elif [6,7,8,9]
+
+  #elif [10,11]
+
+  return retornarMatriz(ruta)
+  
+
+
+
+
+
 @app.route('/' , methods = ['GET','POST'])
 def principal():
   #Está funcion renderiza la pagina inicial
+  if 'username' in session:
+    print('ya esta el usuario')
+    mapaGeneral = leerMatriz(int(1))
+    print(mapaGeneral)
+    return render_template('juego.html', nombre = session['username'], vida = 5, grado = 3,mapa=mapaGeneral)
   return render_template('pagina_inicial.html')
+
+
 
 @app.route('/inicio_sesión', methods = ['GET','POST'])
 def index():
@@ -24,18 +59,37 @@ def index():
   #Está funcion renderiza la pagina del juego cuando inicia sesión
   global nombre
   comment_form = forms.CommentForm(request.form)
-  if request.method == 'POST' and comment_form.validate(): #Valido el envio correcto del formulario con flask
-    if verificarUsuario(comment_form.username.data,comment_form.comment.data):
-       nombre = comment_form.username.data
-       vida = 5
-       grado = verGrado(nombre) 
-       return render_template('juego.html', nombre = nombre, vida = vida, grado = grado)
-    else:
-      #Cuando el jugador y la contraseña no coinciden
-      print('no existe')
+  if request.method == 'POST':
+    if comment_form.validate(): #Valido el envio correcto del formulario con flask
+      if verificarUsuario(comment_form.username.data,comment_form.comment.data):
+        nombre = comment_form.username.data
+        session['username'] = nombre
+        vida = verVidas(nombre)
+        grado = verGrado(nombre) 
+        mapaGeneral = leerMatriz(int(grado))
+        print(mapaGeneral)
+        return render_template('juego.html', nombre = nombre, vida = vida, grado = grado,mapa=mapaGeneral)
+
   title = 'Juego'
   return render_template('index.html', title = title, form = comment_form)
 
+
+@app.route('/logout', methods = ['GET','POST'])
+def logout():
+   global nombre
+   session.pop('username', None)
+   comment_form = forms.CommentForm(request.form)
+   if request.method == 'POST':
+    if comment_form.validate(): #Valido el envio correcto del formulario con flask
+      if verificarUsuario(comment_form.username.data,comment_form.comment.data):
+        nombre = comment_form.username.data
+        session['username'] = nombre
+        vida = verVidas(nombre)
+        grado = verGrado(nombre) 
+        return render_template('juego.html', nombre = nombre, vida = vida, grado = grado)
+
+   title = 'Juego'
+   return render_template('index.html',title = title, form = comment_form )
 
 @app.route('/preguntas', methods = ['GET','POST'])
 def preguntas():
@@ -60,8 +114,8 @@ def inicio_administrador():
        
    title = 'Juego'
    return render_template('inicio_administrador.html', title = title, form = administrador_form)
-
-
+                  
+                                                                                              
 
 
 l_registro=[]
@@ -85,11 +139,13 @@ def registro():
        f.write(',')
        f.write(registro_form.curso_registro.data)
        f.close()
-       f = open('grados.txt', 'a')
+       f = open('perfil.txt', 'a')
        f.write('\n')
        f.write(registro_form.username_registro.data)
        f.write(',')
        f.write(registro_form.curso_registro.data)
+       f.write(',')
+       f.write('5')
        f.close()
        f = open('inicio_sesión.txt', 'a')
        f.write('\n')
@@ -97,6 +153,7 @@ def registro():
        f.write(',')
        f.write(registro_form.comment_registro.data)
        f.close()
+       l = []
        l_new = []
        l_new.append((registro_form.username_registro.data))
        l_new.append((registro_form.comment_registro.data))
@@ -110,12 +167,15 @@ def registro():
        l_new.append((registro_form.curso_registro.data))
        l_registro.append(l_new)
        print(l_registro)
+       title = 'Juego'
+       return render_template('registroCorrecto.html')
     else:
       print('Ya esta')
 
 
    title = 'Juego'
    return render_template('registro.html', title = title, form = registro_form)
+
 
 @app.route('/saludo')
 def saludo():
@@ -127,13 +187,18 @@ def saludo():
 
 @app.route('/juego')
 def juego():
-  #Esta funcion renderiza la pagina del juego
-   return render_template('juego.html')
+    #Esta funcion renderiza la pagina del juego
+  return render_template('juego.html')
+
 
 @app.route('/pagina_administrador')
 def pagina_administrador():
   #Está funcion renderiza la pagina del administrador
    return render_template('pagina_administrador.html')
 
+
+
 if __name__ == '__main__':
-   app.run( debug = True, port = 12004)
+  app.secret_key = 'cladjadodmep'
+  app.run( debug = True, port = 12001)
+

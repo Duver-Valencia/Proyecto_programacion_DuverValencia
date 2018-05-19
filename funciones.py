@@ -21,7 +21,7 @@ def verGrado(usuario):
     '''Esta función recibe como parametro el nombre de un usuario y retorna el grado en el que está
     '''
     l=[]
-    f = open('grados.txt','r')
+    f = open('perfil.txt','r')
     for line in f:
         line = line.replace('\n','')
         sub_lista = line.split(',')
@@ -32,6 +32,23 @@ def verGrado(usuario):
         if l[c][0] == usuario:
             return l[c][1]
             c = c + 1
+        else:
+            c = c + 1
+
+def verVidas(usuario):
+    '''Esta función recibe como parametro el nombre de un usuario y retorna el grado en el que está
+    '''
+    l=[]
+    f = open('perfil.txt','r')
+    for line in f:
+        line = line.replace('\n','')
+        sub_lista = line.split(',')
+        l.append(sub_lista)
+    f.close()
+    c = 0
+    while c < len(l):
+        if l[c][0] == usuario:
+            return l[c][2]
         else:
             c = c + 1
 

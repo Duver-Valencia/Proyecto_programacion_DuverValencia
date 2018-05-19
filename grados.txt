@@ -1,3 +1,0 @@
-usuario,grado
-duver,4
-camiloerazo,0

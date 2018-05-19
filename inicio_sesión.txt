@@ -1,5 +1,2 @@
 usuario,contraseña
 Duver,duver123
-Duvere,12345
-duver,duver
-camiloerazo,camiloerazo1

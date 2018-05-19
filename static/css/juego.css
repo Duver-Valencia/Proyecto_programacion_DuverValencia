@@ -11,6 +11,7 @@ body{
 	background-color: #EFA716;
 	border-radius: 0px; 
 	color: black;
+	width: 20%;
 }
 
 .text:hover{
@@ -31,15 +32,15 @@ body{
 }
 
 a{
-	font-size: 18px;
-	font-family: arial;
+	font-size:25px;
+	font-family: impact;
 	text-align: center;
 	background: #EFA716;
 	display: inline-block; 
 	color: white;
 	text-decoration: none;
 	margin: 0px 10px 10px 0%;
-	width: 5%;
+	width: 15%;
 	border-radius: 10px;
 	border: none;
 
@@ -49,4 +50,48 @@ a{
 a:hover{
 	background:#4A88F4;
 	cursor: pointer; 
+}
+
+span{
+	font-size: 25px;
+	font-family: impact;
+	text-align: center;
+	background: #EFA716;
+	display: inline-block; 
+	color:#EFA716;
+	text-decoration: none;
+	margin: 0px 0px 0px 0%;
+	width: 2%;
+	border-radius: 10px;
+	border: n
+
+}
+
+span{
+	background-color: #EFA716;
+	border-radius: 0px; 
+	color: black;
+}
+
+
+span:hover{
+	background-color: gray;
+}
+
+.var{
+	font-size: 25px;
+	font-family:impact;
+	text-align: center;
+	background: #EFA716;
+	display: inline-block; 
+	color: white;
+	text-decoration: none;
+	margin: 0px 10px 0px 0%;
+	width: 5%;
+	border-radius: 0px; 
+
+}
+
+.var:hover{
+	background-color: gray;
 }

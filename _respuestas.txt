@@ -1,0 +1,18 @@
+id_pregunta,index,opciones
+0,2,[4,3,1,3]
+1,3,[2,5,4,3]
+2,1,[1,2,4,3]
+3,0,[4,1,2,5]
+4,2,[e,u,a,o]
+5,1,[4,5,2,7]
+6,3,[e,a,i,s]
+7,2,[e,o,i,a]
+8,1,[Morado,Amarillo,Cuaderno,Blanco]
+9,2,[Cubo,Cuadrado,Circulo,Triangulo]
+10,0,[Cuatro,Dos,Uno,No tiene]
+11,3,[Dos,Cuatro,No tiene,Tres]
+12,1,[Arroz,Tolerancia,Futbol,Rojo]
+13,0,[Un valor,Una emoción,Un color,Una ciudad]
+14,2,[Respeto,Tolerancia,Fresa,Amor]
+15,1,[Azul,Amor,Futbol,Cuatro]
+

@@ -8,7 +8,7 @@ id,materia,grado,pregunta
 6,Español,0,Seleccione una letra que no sea una vocal
 7,Español,0,¿Cual es la tercera vocal?
 8,Artistica,0,¿Cual de estos es un color primario?
-9,Artistica,0,¿Cual es la figura del sol?
+9,Artistica,0,¿Cual es la forma del sol?
 10,Artistica,0,¿Cuantos lados tiene un cuadrado?
 11,Artistica,0,¿Cuantos lados tiene un triangulo?
 12,Etica,0,¿Cual es un valor?
