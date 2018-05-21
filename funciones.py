@@ -98,16 +98,20 @@ def buscarRespuestas(id_pregunta):
 def diccionarioPreguntas():
   d = [{'grado':0,
   'materia':'Matematicas',
-  'preguntas':['¿Cuanto es 3-2?','¿Cuanto es 2+1?','¿Cuanto es 3-1?','¿Que numero sigue del 3?']},
+  'preguntas':['¿Cuanto es 3-2?','¿Cuanto es 2+1?','¿Cuanto es 3-1?','¿Que numero sigue del 3?'],
+  'respuestas':[['2','3','1','4'],['2','3','1','4'],['5','3','1','4'],['6','3','1','4']]},
   {'grado':0,
   'materia':'Español',
-  'preguntas':['¿Cual es la primera vocal?','¿Cuantas vocales existen?','Seleccione una letra que no sea una vocal','¿Cual es la tercera vocal?']},
+  'preguntas':['¿Cual es la primera vocal?','¿Cuantas vocales existen?','Seleccione una letra que no sea una vocal','¿Cual es la tercera vocal?'],
+  'respuestas':[['e','u','a','o'],['4','5','2','7'],['e','a','i','s'],['e','o','i','a']]},
   {'grado':0,
   'materia':'Artistica',
-  'preguntas':['¿Cual de estos es un color primario?','¿Cual es la forma del sol?','¿Cuantos lados tiene un cuadrado?','¿Cuantos lados tiene un triangulo?']},
+  'preguntas':['¿Cual de estos es un color primario?','¿Cual es la forma del sol?','¿Cuantos lados tiene un cuadrado?','¿Cuantos lados tiene un triangulo?'],
+  'respuestas':[['Morado','Amarillo','Cuaderno','Blanco'],['Cubo','Cuadrado','Circulo','Triangulo'],['Cuatro','Dos','Uno','No tiene'],['Dos','Cuatro','No tiene','Tres']]},
   {'grado':0,
   'materia':'Etica',
-  'preguntas':['¿Cual de estos es un valor?','¿Que es respeto?','¿Cual de estos no es un valor?','¿Cual de estas es una emoción?']}]
+  'preguntas':['¿Cual de estos es un valor?','¿Que es respeto?','¿Cual de estos no es un valor?','¿Cual de estas es una emoción?'],
+  'respuestas':[['Arroz','Tolerancia','Futbol','Rojo'],['Un valor','Una emoción','Un color','Una ciudad'],['Respeto','Tolerancia','Fresa','Amor'],['Azul','Amor','Futbol','Cuatro']]}]
   return d
 
 

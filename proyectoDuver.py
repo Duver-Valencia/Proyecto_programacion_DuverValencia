@@ -49,7 +49,7 @@ def principal():
     print('ya esta el usuario')
     mapaGeneral = leerMatriz(int(1))
     preguntas = diccionarioPreguntas()
-    return render_template('juego.html', nombre = session['username'], vida = 5, grado = 3,mapa=mapaGeneral, preguntas = preguntas)
+    return render_template('juego.html', nombre = session['username'], vida = 5, grado = 1,mapa=mapaGeneral, preguntas = preguntas)
   return render_template('pagina_inicial.html')
 
 

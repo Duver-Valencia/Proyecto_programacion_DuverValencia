@@ -2,6 +2,17 @@
 <!DOCTYPE html>
 <html> <!-- Documento del funcionamiento del juego --> 
 	<head>
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+		<meta charset="utf-8">
+     	<title>Demo</title>
+     	<link type="text/css" href="css/custom-theme/jquery-ui-1.8.16.custom.css" rel="stylesheet" />
+     	<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+     	<script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>
+		
+
+
 
 		<script>
 		window.variablesJuego = {
@@ -10,7 +21,10 @@
 			preguntas : {{ preguntas | safe}}
 		}
 
+
 		var grado1 = 0
+
+		
 		</script> 
 
 		<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
@@ -25,6 +39,19 @@
 		</style>
 	</head>
 	<body style="background:#0FBEB3;">
+	 	<div id="dialogo" title={{preguntas[0].materia}}>
+        <p >{{preguntas[0].preguntas[0]}}</p>
+        <input type="radio" name="1">{{preguntas[0].respuestas[0][0]}}
+        <br>
+        <input type="radio" name="1">{{preguntas[0].respuestas[0][1]}}
+        <br>
+        <input type="radio" name="1">{{preguntas[0].respuestas[0][2]}}
+        <br>
+        <input type="radio" name="1">{{preguntas[0].respuestas[0][3]}}
+        <br>
+        <input type="submit" name="">
+        </div>
+		
 	<div class="links">
 		 <!--___________ Empieza la barra de botones ___________--> 
 		<a href="/logout" >Cerrar sesión</a>
@@ -41,6 +68,30 @@
 		<canvas class="canvas"  id="canvas" width="1344" height="544"></canvas>
 		<!--___________ Empieza el documento script ___________--> 
 		<script type="text/javascript">
+
+			$(document).ready(function() {
+           		$("#dialogo").dialog({autoOpen:false});
+           		$("#abrir").click(function(event) {
+               // $("#dialogo").dialog('option','position',[event.offsetX, event.offsetY]);
+               
+               	$("#dialogo").dialog('open');
+           		});
+           		$("#cerrar").click(function() {
+               	$("#dialogo").dialog('close');
+           		});
+        	}); 
+
+        	$(document).ready(function() {
+           		$("#dialogo2").dialog({autoOpen:false});
+           		$("#abrir").click(function(event) {
+               // $("#dialogo").dialog('option','position',[event.offsetX, event.offsetY]);
+               
+               	$("#dialogo").dialog('open');
+           		});
+           		$("#cerrar").click(function() {
+               	$("#dialogo").dialog('close');
+           		});
+        	});  
 
 			let canvas = document.getElementById("canvas")
 			let contexto = canvas.getContext("2d")
@@ -266,7 +317,7 @@
 					else if ((tecla === 'w')&&(matriz[(fila)-1][columna] === 1)&&(window.variablesJuego.grado == 1)){
 						console.log(window.variablesJuego.grado)
 						Grado1()
-
+						
 						var r = confirm("¿Ingresar a grado1?");
 						if (r == true) {
 							x = 608
@@ -298,6 +349,7 @@
 					}
 					
 					else if ((tecla === 'w')&&(matriz[(fila)-1][columna] === 3)){
+						Grado1() 
 						x = 608
 						y = 512
 						columna = 19
@@ -511,9 +563,13 @@
 							preguntas = (window.variablesJuego.preguntas)
 							for (i in (preguntas)){
 								if (preguntas[i]['materia']== ('Español')){
-									console.log('_______________________________')
+									
+									console.log('____________________________________')
 									console.log(preguntas[i]['materia'])
+									alert(preguntas[i]['materia'])
 									for (m in preguntas[i]['preguntas']){
+										alert(preguntas[i]['preguntas'][m])
+										alert(preguntas[i]['respuestas'][m])
 										console.log(preguntas[i]['preguntas'][m])
 									}
 								}
@@ -527,9 +583,13 @@
 
 							for (i in (preguntas)){
 								if (preguntas[i]['materia']== ('Matematicas')){
-									console.log('_______________________________')
+									$("#dialogo").dialog('open');
+									console.log('____________________________________')
 									console.log(preguntas[i]['materia'])
+									alert(preguntas[i]['materia'])
 									for (m in preguntas[i]['preguntas']){
+										alert(preguntas[i]['preguntas'][m])
+										alert(preguntas[i]['respuestas'][m])
 										console.log(preguntas[i]['preguntas'][m])
 									}
 								}
@@ -543,9 +603,13 @@
 							preguntas = (window.variablesJuego.preguntas)
 							for (i in (preguntas)){
 								if (preguntas[i]['materia']== ('Artistica')){
-									console.log('_______________________________')
+									console.log('____________________________________')
 									console.log(preguntas[i]['materia'])
+									alert(preguntas[i]['materia'])
 									for (m in preguntas[i]['preguntas']){
+										alert(preguntas[i]['preguntas'][m])
+
+										alert(preguntas[i]['respuestas'][m])
 										console.log(preguntas[i]['preguntas'][m])
 									}
 								}
@@ -559,9 +623,13 @@
 							preguntas = (window.variablesJuego.preguntas)
 							for (i in (preguntas)){
 								if (preguntas[i]['materia']== ('Etica')){
-									console.log('_______________________________')
+									console.log('____________________________________')
 									console.log(preguntas[i]['materia'])
+									alert(preguntas[i]['materia'])
 									for (m in preguntas[i]['preguntas']){
+										alert(preguntas[i]['preguntas'][m])
+
+										alert(preguntas[i]['respuestas'][m])
 										console.log(preguntas[i]['preguntas'][m])
 									}
 								}
