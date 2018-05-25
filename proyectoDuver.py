@@ -31,6 +31,8 @@ def leerMatriz(grado):
   if grado in [1,2,3,4,5]:
     ruta = './static/matriz1.txt'
   #elif [6,7,8,9]
+  
+
 
   #elif [10,11]
 
@@ -49,6 +51,7 @@ def principal():
     print('ya esta el usuario')
     mapaGeneral = leerMatriz(int(1))
     preguntas = diccionarioPreguntas()
+    
     return render_template('juego.html', nombre = session['username'], vida = 5, grado = 1,mapa=mapaGeneral, preguntas = preguntas)
   return render_template('pagina_inicial.html')
 

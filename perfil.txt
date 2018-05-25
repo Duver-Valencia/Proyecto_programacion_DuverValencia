@@ -1,2 +1,4 @@
 usuario,grado,vidas
 Duver,1,5
+duvervalencia,3,5
+Juan,1,5
