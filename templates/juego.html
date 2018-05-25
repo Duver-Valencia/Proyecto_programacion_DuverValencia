@@ -100,6 +100,7 @@
 			preguntas : {{ preguntas | safe}}
 		}
 
+		console.log(window.variablesJuego.preguntas[0]['Matematicas']['respuestas'][0])
 
 		var grado1 = 0
 
@@ -682,24 +683,26 @@
 							x -= 32
 							columna -=1;
 							document.getElementById('dialogo').innerHTML=''
+							var c = 0;
 							for (m = 0; m < 4; m++){
+								var pregunta = window.variablesJuego.preguntas[0]['Matematicas']['preguntas'][m]
 								var midiv = document.createElement("div");
-										midiv.innerHTML = `<p>${"{{preguntas.0.Matematicas.preguntas[0]}}"}</p>`;
+										midiv.innerHTML = `<p>${pregunta}</p>`;
 										document.getElementById('dialogo').appendChild(midiv)
+								c ++;
 								for (i = 0; i < 4; i++){
+									var respuestas =  window.variablesJuego.preguntas[0]['Matematicas']['respuestas'][m][i]
 									var midiv = document.createElement("div");
-										midiv.setAttribute("id",i);
-										midiv.setAttribute("name",i);
-										midiv.innerHTML = `<input type='radio'>${"{{preguntas.0.Matematicas.respuestas[0][0]}}"}`;
+										midiv.setAttribute("id",c);
+										midiv.setAttribute("name",c);
+										midiv.innerHTML = `<input type='radio'>${respuestas}`;
 										document.getElementById('dialogo').appendChild(midiv);
 
 								}
 							}
 
 							var boton = document.createElement('submit');
-								boton.setAttribute("id",i);
-								boton.setAttribute("name",i);
-								boton.innerHTML = `<input type="submit" value="Responder">`;
+								boton.innerHTML = `<input type="submit" value="Responder">`
 								document.getElementById('dialogo').appendChild(boton);
 
 							$("#dialogo").dialog('open');
@@ -711,23 +714,25 @@
 							columna +=1
 							document.getElementById('dialogo').innerHTML=''
 							for (m = 0; m < 4; m++){
+								var pregunta = window.variablesJuego.preguntas[0]['Artistica']['preguntas'][m]
 								var midiv = document.createElement("div");
-										midiv.innerHTML = `<p>${"{{preguntas.0.Artistica.preguntas[0]}}"}</p>`;
+										midiv.innerHTML = `<p>${pregunta}</p>`;
 										document.getElementById('dialogo').appendChild(midiv)
+								
 								for (i = 0; i < 4; i++){
+									var respuestas = window.variablesJuego.preguntas[0]['Artistica']['respuestas'][m][i]
 									var midiv = document.createElement("div");
-										midiv.setAttribute("id",i);
-										midiv.setAttribute("name",i);
-										midiv.innerHTML = `<input type='radio'>${"{{preguntas.0.Artistica.respuestas[0][0]}}"}`;
+										midiv.setAttribute("id",1);
+										midiv.setAttribute("name",1);
+										midiv.innerHTML = `<input type='radio'>${respuestas}`;
 										document.getElementById('dialogo').appendChild(midiv);
 								}
 							}
 
 							var boton = document.createElement('submit');
-								boton.setAttribute("id",i);
-								boton.setAttribute("name",i);
-								boton.innerHTML = `<input type="submit" value="Responder">`;
+								boton.innerHTML = `<input type="submit" value="Responder" >`
 								document.getElementById('dialogo').appendChild(boton);
+
 							$("#dialogo").dialog('open');
 						}
 
