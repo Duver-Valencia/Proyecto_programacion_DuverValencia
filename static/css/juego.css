@@ -22,6 +22,28 @@ body{
 	background-color: gray;
 }
 
+.boton{
+	margin-bottom: 20px;
+	width: 100% ;
+	padding: 10px;
+	box-sizing: border-box;
+	border:1px solid black;
+	border-radius: 10px;
+	border: 1px solid #1668C4;
+	font-family: impact;
+	font-size: 18px;
+	margin-bottom: 30px;
+	background: blue;
+	color: white;
+	margin: 0% 0% 0% 0%;
+
+}
+
+.boton:hover{
+	background:#4A88F4;
+	cursor: pointer; 
+}
+
 .canvas_lugar{
 	padding:10px 0px;
 }

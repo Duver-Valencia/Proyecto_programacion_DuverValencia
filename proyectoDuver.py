@@ -52,7 +52,7 @@ def principal():
     mapaGeneral = leerMatriz(int(1))
     preguntas = diccionarioPreguntas()
     
-    return render_template('juego.html', nombre = session['username'], vida = 5, grado = 1,mapa=mapaGeneral, preguntas = preguntas)
+    return render_template('juego.html', nombre = session['username'],correctas = 0, vida = 5, grado = 1,mapa=mapaGeneral, preguntas = preguntas)
   return render_template('pagina_inicial.html')
 
 
@@ -206,5 +206,5 @@ def pagina_administrador():
 
 if __name__ == '__main__':
   app.secret_key = 'cladjadodmep'
-  app.run( debug = True, port = 12001)
+  app.run( debug = True, port = 12003)
 
