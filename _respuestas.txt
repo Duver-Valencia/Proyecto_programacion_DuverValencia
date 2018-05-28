@@ -13,6 +13,72 @@ id_pregunta,index,opciones
 11,3,[Dos,Cuatro,No tiene,Tres]
 12,1,[Arroz,Tolerancia,Futbol,Rojo]
 13,0,[Un valor,Una emoción,Un color,Una ciudad]
-14,2,[Respeto,Tolerancia,Fresa,Amor]
+14,2,[Respeto,Tolerancia,Fresa,Solidaridad]
 15,1,[Azul,Amor,Futbol,Cuatro]
+
+16,3,[12,13,23,22]
+17,2,[5,10,9,12]
+18,1,[5,6,2,14]
+19,2,[3,7,4,1]
+
+
+20,2,['2','6','5','4']
+21,1,['Banano','Jugo de pera','Pera','Manzana']
+22,0,['B','E','W','Z']
+23,3,['A','M','X','Z']
+
+24,3,['2','3','5','4']
+25,1,['Amarillo','Blanco','Azul','Rojo']
+26,3,['Negro','Cafe','Blanco','Morado']
+27,2,['Cafe claro','Amarillo oscuro','Verde','Ninguno']
+
+28,2,['Arroz','Tristeza','Respeto','Amarillo']
+29,1,['Un deber','Un valor','Una señora','Una marca de carros']
+30,1,['Cuando respeto a mis amigos','Cuando peleo con mis amigos','Cuando tengo hambre','Nunca']
+31,3,['Un derecho','Una niña','Un color','Un sentimiento']
+
+
+
+------------------------------------------
+
+32,2,['5','3','15','30']
+33,1,['2','5','12','10']
+34,0,['7','12','4','8']
+35,3,['4','2','8','1']
+
+36,1,['Miedo','Tristeza','Amarillo','No tiene']
+37,2,['Tristeza','Alegria','Temor','Capricho']
+38,0,['3','No tiene','2','1']
+39,3,['Dormir','Elegir','Ellos','Empezar']
+
+40,2,['Rosado','Negro','Naranja','Ninguno de los anteriores']
+41,1,['Guitarra','Equipo de sonido','Flauta','Tambor']
+42,3,['4','2','8','6']
+43,2,['Amarillo y rojo','Morado,azul y rojo','Amarillo,azul y rojo','Amarillo,azul y verde']
+
+44,1,['Una ciudad','Un valor','Una montaña','Un derecho']
+45,1,['Salud','Bondad','Arroz','Culpa']
+46,2,['Decir la verdad','Ser agradecido','Decir mentiras','Ser amable']
+47,3,['Un departamento','Un derecho de los niños','Un valor','Ninguna de las anteriores']
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
