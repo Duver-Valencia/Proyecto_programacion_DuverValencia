@@ -14,7 +14,7 @@ id,materia,grado,pregunta
 12,Etica,0,¿Cual de estos es un valor?
 13,Etica,0,¿Que es respeto?
 14,Etica,0,¿Cual de estos no es un valor?
-15,Etica,0,¿Cual de estas es una emoción?
+15,Etica,0,¿Cual de estos es una emoción?
 16,Matematicas,1,¿Cuanto es 15+7?
 17,Matematicas,1,¿Cuanto es 12-3?
 18,Matematicas,1,¿Cuanto es 2x3?
@@ -27,8 +27,8 @@ id,materia,grado,pregunta
 25,Artistica,1,¿Cual de estos no es un color primario?
 26,Artistica,1,¿Cual de estos es un color secundario?
 27,Artistica,1,¿Que color se obtiene mezclando el color amarillo y el azul?
-28,Etica,1,¿Cual de estos es ?
-29,Etica,1,¿Que es el amor?
+28,Etica,1,Seleccione un valor
+29,Etica,1,¿Que es la tolerancia?
 30,Etica,1,¿Cuando soy un buen amigo?
 31,Etica,1,¿Que es la alegria?
 32,Matematicas,2,¿Cuanto es 3x5?
@@ -39,15 +39,17 @@ id,materia,grado,pregunta
 37,Español,2,¿Cual es un sinonimo de miedo?
 38,Español,2,¿Cuantas silabas tiene la palabra 'zapato'?
 39,Español,2,¿Cual de estos no es un verbo?
-40,Artistica,2,¿Cual de estos es un color terciario?
+40,Artistica,2,¿Cual de estos es un color secundario?
 41,Artistica,2,¿Cual de estos no es un instrumento musical?
 42,Artistica,2,¿Cuantos lados tiene un cubo?
-43,Artistica,2,¿Que colores tiene la bandera de Colombia?
+43,Artistica,2,¿Cuales son los colores de la bandera de Colombia?
 44,Etica,2,¿Que es la solidaridad?
 45,Etica,2,¿Cual de estos es un valor?
-46,Etica,2,¿Cual de estos no es un sentimiento?
+46,Etica,2,¿Cual de estas es una mala decisión?
 47,Etica,2,¿Que es la honestidad?
-48,Matematicas,3,¿Cuanto es 7 + 8?
+
+
+48,Matematicas,3,¿Cuanto es 7 + 7?
 49,Matematicas,3,¿Cuanto es 14 / 2?
 50,Matematicas,3,¿Cuanto es 28 - 13?
 51,Matematicas,3,¿Cuanto es 6 x 4?
@@ -55,14 +57,18 @@ id,materia,grado,pregunta
 53,Español,3,¿Cual de estas palabras está mal escrita?
 54,Español,3,¿Cual de estos es un sinonimo de hogar?
 55,Español,3,¿Cual de estas palabras está bien escrita?
+
 56,Sociales,3,¿Cual es la capital de Colombia?
-57,Sociales,3,¿Cual de estas es una ciudad de Colombia?
+57,Sociales,3,¿Cual de estas no es una ciudad de Colombia?
 58,Sociales,3,¿Que es Colombia?
-59,Sociales,3,¿Cuales son los colores de la bandera de Colombia?
+59,Sociales,3,¿Cual de estos no es un color de la bandera de Colombia?
+
 60,Etica,3,¿Cual de estas es una mala actitud?
-61,Etica,3,¿Que es la solidaridad?
+61,Etica,3,¿Que es lo contrario de estar feliz?
 62,Etica,3,¿Cual de estos es un valor?
 63,Etica,3,¿Que es lo contrario a amar?
+
+
 64,Matematicas,4,¿Cuanto es 16 \ 4?
 65,Matematicas,4,¿Cuanto es 135 +31?
 66,Matematicas,4,¿Cuando es 7 x 8?

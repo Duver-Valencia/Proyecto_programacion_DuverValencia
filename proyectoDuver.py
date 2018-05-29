@@ -28,7 +28,7 @@ def retornarMatriz(ruta):
 
 def leerMatriz(grado):
   matriz = []
-  if grado in [1,2,3,4,5,6,7,8,9,10,11]:
+  if grado in [0,1,2,3,4,5,6,7,8,9,10,11]:
     ruta = './static/matriz1.txt'
   #elif [6,7,8,9]
   

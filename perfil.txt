@@ -1,5 +1,8 @@
 usuario,grado,vidas
-Duver,1,5
+Duver,0,5
 duvervalencia,3,5
 Juan,1,5
 Eje2,1,5
+Andres,1,5
+frfrr,0,5
+elkin,0,5

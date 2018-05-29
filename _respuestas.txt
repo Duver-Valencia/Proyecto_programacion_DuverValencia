@@ -61,6 +61,51 @@ id_pregunta,index,opciones
 46,2,['Decir la verdad','Ser agradecido','Decir mentiras','Ser amable']
 47,3,['Un departamento','Un derecho de los niños','Un valor','Ninguna de las anteriores']
 
+______________________________________________________
+
+48,2,['12','19','14','13']
+49,1,['5','7','2','11']
+50,2,['10','17','15','13']
+51,3,['18','26','28','24']
+
+52,1,['Imagenes','Introducción','Letras','Frases']
+53,2,['Hoja','Huevo','Colejio','Carro']
+54,0,['Casa','Hermano','Grito','Felicidad']
+55,3,['Hojo','Cabayo','Rrio','Cuaderno']
+
+56,1,['Cali','Bogota','Medellin','Pasto']
+57,2,['Barranquilla','Cartagena','Lima','Cali']
+58,1,['Un departamento','Un pais','Una ciudad','Un continente']
+59,2,['Azul','Amarillo','Verde','Rojo']
+
+60,1,['Compañerismo','Pereza','Alegria','Gratitud']
+61,2,['Tener hambre','Tener miedo','Estar triste','Estar viejo']
+62,3,['Miedo','Dinero','Camisa','Responsabilidad']
+63,1,['Caminar','Odiar','Trabajar','Guardar']
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
 
 
