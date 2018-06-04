@@ -54,7 +54,9 @@ def principal():
     
     return render_template('juego.html', nombre = session['username'],correctas = 0, vida = 5, grado = 1,mapa=mapaGeneral, preguntas = preguntas)
   return render_template('pagina_inicial.html')
-
+@app.route('/informacion' , methods = ['GET','POST'])
+def informacion():
+  return render_template('informacion.html')
 
 
 @app.route('/inicio_sesión', methods = ['GET','POST'])

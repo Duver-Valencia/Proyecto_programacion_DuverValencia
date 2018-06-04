@@ -487,37 +487,6 @@ def diccionarioPreguntas():
       ['Un carpintero ','Un profesor','Un maestro de la ley'],
       ['Cristianismo, hinduísmo','Judaísmo, cristianismo','El Islam, testigo de Jehová ']]}}
 
-      # 11:{'Matematicas':{
-      # 'id_preguntas':[0,0,2,3],
-      # 'preguntas':['Log 7 de 343','¿Cuánto es 894x12?','Un conjunto se representa gráficamente con lo que se conoce como un:','Para despejar la x de la ecuación 3x - 4 = 18, es necesario hacer:'],
-      # 'index':[0,1,3,0],
-      # 'respuestas':[['3','12','13','6'],['10728','1232','3212'],['Gráfico de barras','Gráfico de pastel','Diagrama de Venn'],['X= 18+4/3','3x = 18+4','18-4+3= x']]},
-
-      # 'Artistica':{
-      # 'id_preguntas':[0,1,2,3],
-      # 'preguntas':['','','',''],
-      # 'index':[2,1,3,3],
-      # 'respuestas':[[''],[''],[''],['']]},
-      # 'Matematicas':{
-      # 'id_preguntas':[0,1,2,3],
-      # 'preguntas':['','','',''],
-      # 'index':[2,1,3,3],
-      # 'respuestas':[[''],[''],[''],['']]},
-      # 'Matematicas':{
-      # 'id_preguntas':[0,1,2,3],
-      # 'preguntas':['','','',''],
-      # 'index':[2,1,3,3],
-      # 'respuestas':[[''],[''],[''],['']]}},
-      # 'Matematicas':{
-      # 'id_preguntas':[0,1,2,3],
-      # 'preguntas':['','','',''],
-      # 'index':[2,1,3,3],
-      # 'respuestas':[[''],[''],[''],['']]},
-      # 'Matematicas':{
-      # 'id_preguntas':[0,1,2,3],
-      # 'preguntas':['','','',''],
-      # 'index':[2,1,3,3],
-      # 'respuestas':[[''],[''],[''],['']]}
     return d2
 
 '''

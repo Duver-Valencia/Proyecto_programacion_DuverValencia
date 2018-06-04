@@ -138,7 +138,7 @@
         <br> -->
         
         </div>
-        <div id="bienvenida">Bienvenido {{nombre}}</div>
+        <div id="bienvenida">{{nombre}} usted ya respondió correctamente las preguntas de esta materia :D</div>
         <div id="pasaGrado">Felicitaciones {{nombre}} acabas de pasar de grado :D</div>
 
 		
@@ -186,7 +186,7 @@
            		$("#abrir").click(function(event) {
                // $("#dialogo").dialog('option','position',[event.offsetX, event.offsetY]);
                
-               	$("#dialogo").dialog('open');
+               	$("#bienvenida").dialog('open');
            		});
            		$("#cerrar").click(function(){
            			// modificar()
@@ -387,45 +387,52 @@
 
 			}
 
+			var preguntas_correctas = [] //En esta lista se agregan los indices de las preguntas que responde correctamente, los inidices de las preguntas que se encuentren en esta lista no los va a volver a preguntar
+
+
 			function agregarPregunta(materia,grado,id){
-     			document.getElementById('dialogo').innerHTML=''
-					var c = 0;
-					var id_preguntas = window.variablesJuego.preguntas[grado][materia]['id_preguntas'][id]
-					var num_respuestas = window.variablesJuego.preguntas[grado][materia]['respuestas'][id]
-					for (m = 0; m < 1; m++){
-						var pregunta = window.variablesJuego.preguntas[grado][materia]['preguntas'][id]
-						var midiv = document.createElement("p");		
-						midiv.innerHTML = `<p>${pregunta}</p>`;
-						document.getElementById('dialogo').appendChild(midiv)
-					c ++;
-						for (i = 0; i < num_respuestas.length; i++){
-							var respuestas =  window.variablesJuego.preguntas[grado][materia]['respuestas'][id][i]
-							var midiv = document.createElement("p");
-							midiv.setAttribute("id",`${id_preguntas}}`);
-							midiv.setAttribute("name","1");
-							midiv.setAttribute("value",respuestas)
-							// // midiv.setAttribute("type","radio")
-							midiv.innerHTML = `<input type="radio" name="1" value="${respuestas}">${respuestas}`;
-							//midiv.innerHTML = `<input type='radio' name="1">${respuestas}`;
-							document.getElementById('dialogo').appendChild(midiv);
+				var id_preguntas = window.variablesJuego.preguntas[grado][materia]['id_preguntas'][id]
+				
+				if (id_preguntas == undefined){$("#bienvenida").dialog('open');}else if(preguntas_correctas.indexOf(id_preguntas) < 0){
+	     			document.getElementById('dialogo').innerHTML=''
+						var c = 0;
+						
+						var num_respuestas = window.variablesJuego.preguntas[grado][materia]['respuestas'][id]
+						for (m = 0; m < 1; m++){
+							var pregunta = window.variablesJuego.preguntas[grado][materia]['preguntas'][id]
+							var midiv = document.createElement("p");		
+							midiv.innerHTML = `<p>${pregunta}</p>`;
+							document.getElementById('dialogo').appendChild(midiv)
+							
+						c ++;
+							for (i = 0; i < num_respuestas.length; i++){
+								var respuestas =  window.variablesJuego.preguntas[grado][materia]['respuestas'][id][i]
+								var midiv = document.createElement("p");
+								midiv.setAttribute("id",`${id_preguntas}}`);
+								midiv.setAttribute("name","1");
+								midiv.setAttribute("value",respuestas)
+								// // midiv.setAttribute("type","radio")
+								midiv.innerHTML = `<input type="radio" name="1" value="${respuestas}">${respuestas}`;
+								//midiv.innerHTML = `<input type='radio' name="1">${respuestas}`;
+								document.getElementById('dialogo').appendChild(midiv);
 
+							}
 						}
-					}
-					
+						
 
-					var boton = document.createElement('input')
-					boton.setAttribute("type","submit")
-					boton.setAttribute("id","cerrar")
-					boton.setAttribute("class","boton")
-					boton.setAttribute("value","Responder")
-					boton.setAttribute("onclick",`modificar('${materia}',${grado},${id})`)
-					 //document.getElementById("cerrar");
-					
-					document.getElementById('dialogo').appendChild(boton);
+						var boton = document.createElement('input')
+						boton.setAttribute("type","submit")
+						boton.setAttribute("id","cerrar")
+						boton.setAttribute("class","boton")
+						boton.setAttribute("value","Responder")
+						boton.setAttribute("onclick",`modificar('${materia}',${grado},${id},${id_preguntas})`)
+						 //document.getElementById("cerrar");
+						
+						document.getElementById('dialogo').appendChild(boton);
 
-				$("#dialogo").dialog('open');
+					$("#dialogo").dialog('open');
 
-
+				}else{agregarPregunta(materia,grado,id+1)}
      		}
      		
 
@@ -433,7 +440,7 @@
 			document.onkeypress = presionar /* Establesco forma en la que se manejara los movimientos
 			del jugador por el mapa */
 
-			function modificar(materia,grado,id){
+			function modificar(materia,grado,id,id_preguntas){
 				// alert($('input[name="1"]:checked').val())
 				var index = window.variablesJuego.preguntas[grado][materia]['index'][id]
 				// alert(index)
@@ -441,6 +448,7 @@
 					alert("Correcto")
 					aumentarPC() 
 					$('#dialogo').dialog('close')
+					preguntas_correctas.push(id_preguntas)
 					agregarPregunta(materia,grado,id+1)
 				}else if($('input[name="1"]:checked').val() == null){alert("No ha seleccionado ninguna respuesta")}else{
 					alert("Incorrecto, la respuesta no es " + $('input[name="1"]:checked').val())
@@ -501,6 +509,7 @@
 				mapa.src = "../static/mapa_juego_1.png"
 				matriz = matriz1
 				$("#pasaGrado").dialog('open');
+				$("#dialogo").dialog('close');
 
 			}
 
@@ -512,6 +521,7 @@
 				}else if(correctas == 15){
 					correctas = parseInt(correctas) - parseInt(correctas)
 					correctas = correctas.toString()
+					$("#dialogo").dialog('close');
 					aumentarGrado()
 
 				}
@@ -523,6 +533,7 @@
 				
 				correctas = parseInt(correctas) - parseInt(correctas)
 				correctas = correctas.toString()
+
 
 			}
 
@@ -557,6 +568,12 @@
 					mapa.src = "../static/mapa_juego_1.png"
 					matriz = matriz1
 					}
+
+				if ((tecla === 'm')){
+					aumentarPC()
+					}
+				
+
 
 				if ((matriz) === (matriz1)){ /* Movimientos del jugador en la primera matriz */
 
@@ -611,19 +628,19 @@
 					}
 					
 					else if ((tecla === 'w')&&(matriz[(fila)-1][columna] === 2)&&(grado != 1)){
-						alert('Este edificio corresponde a el grado 2 y usted se encuentra cursando el grado'+' '+window.variablesJuego.grado)
+						alert('Este edificio corresponde a el grado 1 y usted se encuentra cursando el grado'+' '+grado)
 					}
 
 					else if ((tecla === 'w')&&(matriz[(fila)-1][columna] === 1)&&(grado != 0)){
-						alert('Este edificio corresponde a el grado 1 y usted se encuentra cursando el grado'+' '+window.variablesJuego.grado)
+						alert('Este edificio corresponde a el grado 0 y usted se encuentra cursando el grado'+' '+grado)
 					}
 
 					else if ((tecla === 'w')&&(matriz[(fila)-1][columna] === 3)&&(grado != 2)){
-						alert('Este edificio corresponde a el grado 3 y usted se encuentra cursando el grado'+' '+window.variablesJuego.grado)
+						alert('Este edificio corresponde a el grado 2 y usted se encuentra cursando el grado'+' '+grado)
 					}
 
 					else if ((tecla === 'w')&&(matriz[(fila)-1][columna] === 4)&&(grado != 3)){
-						alert('Este edificio corresponde a el grado 4 y usted se encuentra cursando el grado'+' '+window.variablesJuego.grado)
+						alert('Este edificio corresponde a el grado 3 y usted se encuentra cursando el grado'+' '+grado)
 					}
 					
 					else if ((tecla === 'w')&&(matriz[(fila)-1][columna] === 3&&(grado == 2))){
@@ -675,11 +692,11 @@
 					}
 
 					else if ((tecla === 's')&&(matriz[(fila)+1][columna] === 6)&&(grado != 4)){
-						alert('Este edificio corresponde a el grado 4 y usted se encuentra cursando el grado'+' '+window.variablesJuego.grado)
+						alert('Este edificio corresponde a el grado 4 y usted se encuentra cursando el grado'+' '+grado)
 					}
 
 					else if ((tecla === 's')&&(matriz[(fila)+1][columna] === 5)&&(grado != 5)){
-						alert('Este edificio corresponde a el grado 5 y usted se encuentra cursando el grado'+' '+window.variablesJuego.grado)
+						alert('Este edificio corresponde a el grado 5 y usted se encuentra cursando el grado'+' '+grado)
 					}
 
 				}
@@ -882,7 +899,7 @@
 							x -= 32
 							columna -=1;
 
-							agregarPregunta('Matematicas',0,0)
+							agregarPregunta('Religion',10,0)
 							
 							
 							
